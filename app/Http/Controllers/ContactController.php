@@ -23,6 +23,6 @@ class ContactController extends Controller
         ];
 
         Mail::to('request->email')->send(new ContactMail($details));
-        return back() ->with('message_sent', 'Your message has sent sucssesfully');
+        return back() ->with('message_sent', 'Your message has sent sucssesfully!!!');
     }
 }
