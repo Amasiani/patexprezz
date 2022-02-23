@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 
 class InquiryController extends Controller
 {
+
     public function inquiry()
     {
         return view('inquiry-form');

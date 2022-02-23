@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illminate\Database\Eloquent\Builder;
 use App\Models\Customer;
 use App\Models\Package;
+use Facade\FlareClient\View;
 
 class SearchController extends Controller
 {
@@ -61,19 +62,19 @@ class SearchController extends Controller
     {
         //
     }
-    
+
     public function search(request $request)
     {
-        //$customers = Customer::all();
+        $customers = Customer::all();
 
         $qry = $request->input('tracking_number');
 
         $packages = Package::with('customers')
         ->getQuery()
-        ->where('tracking_number', 'LIKE', "%{$qry}%")->orderBy('tracking_number')        
+        ->where('tracking_number', 'LIKE', "%{$qry}%")->orderBy('tracking_number')
         ->get();
-        
-        return view('/search', compact('packages'));
+
+        return view ('/search', compact('packages'));
     }
 
     /**

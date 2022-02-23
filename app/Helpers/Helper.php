@@ -3,7 +3,7 @@ namespace App\Helpers;
 
 class Helper{
 
-    public static function  TrackingIdGenerator($model, $trow, $length= 8, $prefix)
+    public static function  TrackingIdGenerator($model, $trow,  $prefix, $length= 8)
     {
         $data = $model::orderBy('id', 'desc');
         if(!$data){
@@ -24,4 +24,3 @@ class Helper{
         return $prefix. "-" .$zeros.$last_number;
     }
 }
-?>

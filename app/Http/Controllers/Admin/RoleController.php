@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Customer;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Package;
 
-class CustomerController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return view('admin.customers.index',
-        ['customers'=> Customer::paginate(10)]
-       );
+        //
     }
 
     /**
@@ -27,7 +24,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('admin.customers.create', ['packages' => Package::all()]);
+        //
     }
 
     /**
@@ -38,27 +35,16 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string',
-            'phone' => 'required|string',
-            'email' => 'required|email|unique:customers,email',
-            'address' => 'required|string'
-
-        ]);
-        $customer = Customer::create($request->except(['_token']));
-
-        //$customer->packages()->sync($request->package);
-
-        return redirect()->route('admin.customers.index');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show($id)
     {
         //
     }
@@ -66,10 +52,10 @@ class CustomerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit($id)
     {
         //
     }
@@ -78,10 +64,10 @@ class CustomerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -89,13 +75,11 @@ class CustomerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Customer  $customer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        Customer::destroy($id);
-
-        return redirect(route('admin.customers.index'));
+        //
     }
 }
