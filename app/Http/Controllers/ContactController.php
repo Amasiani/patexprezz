@@ -16,10 +16,10 @@ class ContactController extends Controller
     public function sendEmail(Request $request)
     {
         $details = [
-            'name' => $request -> name,
-            'email' => $request -> email,
-            'phone' => $request -> phone,
-            'message' => $request -> message
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'message' => $request->input('message')
         ];
 
         Mail::to('request->email')->send(new ContactMail($details));

@@ -26,7 +26,7 @@
     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
   </li>
 </ul>
-    <a class="btn btn-sm btn-success float-end" href="{{ route('admin.packages.create') }}" role="botton">Create a new package</a>
+    <a class="btn btn-sm btn-success float-end" href="{{ route('create') }}" role="botton">Create a new package</a>
   </div>
 </div>
 <div class="card">

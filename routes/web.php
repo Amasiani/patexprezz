@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\InquiryController;
@@ -30,8 +32,10 @@ Route::post('/send-message', [ContactController::class, 'sendEmail'])->name('con
 Route::get('/inquiry-form',[InquiryController::class,'inquiry']);
 Route::post('/send-massage', [InquiryController::class, 'sendInquiry'])->name('inquiry.send');
 Route::get('/index', [PackageController::class, 'addpackage'])->name('package.view');
+Route::get('admin/packages/create', [PackageController::class, 'create'])->name('create');
 Route::post('/package-created', [PackageController::class, 'store'])->name('package.created');
 Route::get('/index', [CustomerController::class, 'addcustomer'])->name('customer.view');
+Route::get('admin/packages/index', [PackageController::class, 'index'])->name('packages.index');
 Route::post('/customer-created', [CustomerController::class, 'store'])->name('customer.created');
 Route::post('/customer-deleted', [CustomerController::class, 'destory'])->name('customer.deleted');
 Route::get('/search', [SearchController::class, 'search'])->name('search.package');
@@ -39,6 +43,8 @@ Route::get('/search', [SearchController::class, 'search'])->name('search.package
 
 //Admin Routes
 Route::prefix('admin')->name('admin.')->group(function() {
-    Route::resource('/packages', PackageController::class);
-    Route::resource('/customers', CustomerController::class);
+    Route::resources([
+        'roles' => RoleController::class,
+        'users' => UserController::class,
+    ]);
 });

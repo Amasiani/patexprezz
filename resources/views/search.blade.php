@@ -49,16 +49,17 @@
                         <div class="card-header">
                             Your Package
                         </div>
-                            <div class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Tracking Number</th>
-                                    <th scope="col">Customer Name</th>
-                                    <th scope="col">Current Location</th>
-                                    <th scope="col">Destination</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                            <table>
+                                <div class="table table-striped table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Tracking Number</th>
+                                        <th scope="col">Customer Name</th>
+                                        <th scope="col">Current Location</th>
+                                        <th scope="col">Destination</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
                                     @if($packages->isNotEmpty())
                                         @foreach ($packages as $package)
                                             <tr>
@@ -77,6 +78,7 @@
                                      @endif
                                 </tbody>
                             </div>
+                        </table>
                     </div>
     </section>
     

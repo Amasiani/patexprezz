@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Fortify\CreateNewUser;
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        //list users
+        return view('admin.users.index');
     }
 
     /**
@@ -24,7 +27,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        //create user
+        return view('admin.users.create', ['roles' => Role::all()]);
     }
 
     /**
@@ -36,6 +40,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
+        //$newUser = new CreateNewUser;
     }
 
     /**

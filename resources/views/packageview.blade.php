@@ -22,7 +22,7 @@
                                         {{Session::get('message_sent')}}
                                     </div>
                                 @endif
-                                <form method="POST" action="{{route('package.add')}}" enctype="multipart/form-data">
+                                <form method="POST" action="{{route('admin.package.store')}}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="name">Tracking Number:</label>

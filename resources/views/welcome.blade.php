@@ -26,7 +26,8 @@
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-                        <a href="{{ route('admin.packages.index') }}" class="text-sm text-gray-700 underline" >Packages</a>
+                        <a href="{{ route('packages.index') }}" class="text-sm text-gray-700 underline" >Packages</a>
+                        <a href="{{ route('admin.users.index') }}" role="button" class="text-sm text-gray-700 underline">Users</a>
                         <a href="{{ route('logout') }}"  onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();" >Logout</a>
 

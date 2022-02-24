@@ -15,7 +15,7 @@
                     <div class="card">
                         <div class="card-header">
                               Add a new package
-                            <a href="{{ url('/admin/packages') }}"><div class="card-tile float-end">Back</div></a> 
+                            <a href="{{ route('packages.index') }}"><div class="card-tile float-end">Back</div></a> 
                         </div>
                             <div class="card-body">
                                 @if(Session::has('message_sent'))
